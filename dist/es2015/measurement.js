@@ -7,6 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * @param {?} data
  * @param {?} rect
  * @param {?} options
@@ -17,7 +21,7 @@ export function calcMeasure(data, rect, options) {
         if (typeof options.itemHeight === 'function' && options.numLimitColumns !== 1) {
             throw new Error('numLimitColumns must equal 1 when using variable item height.');
         }
-        const /** @type {?} */ itemHeight = typeof options.itemHeight === 'number' ? options.itemHeight : yield (typeof options.itemHeight !== 'function' ? options.itemHeight : Promise.all(data.map((item, i) => __awaiter(this, void 0, void 0, function* () { return ((options.itemHeight))(item, i); }))));
+        const /** @type {?} */ itemHeight = typeof options.itemHeight === 'number' ? options.itemHeight : yield (typeof options.itemHeight !== 'function' ? options.itemHeight : Promise.all(data.map((item, i) => __awaiter(this, void 0, void 0, function* () { return (/** @type {?} */ (options.itemHeight))(item, i); }))));
         const /** @type {?} */ minItemHeight = typeof itemHeight === 'number' ? itemHeight : itemHeight.length === 0 ? 0 : itemHeight.reduce((a, b) => Math.min(a, b));
         const /** @type {?} */ numPossibleRows = Math.ceil(rect.height / minItemHeight);
         const /** @type {?} */ numPossibleColumns = options.itemWidth !== undefined ? Math.floor(rect.width / options.itemWidth) : 0;
@@ -34,6 +38,7 @@ export function calcMeasure(data, rect, options) {
     });
 }
 const /** @type {?} */ clamp = (min, max, value) => Math.min(max, Math.max(min, value));
+const ɵ0 = clamp;
 /**
  * @param {?} scrollTop
  * @param {?} measure
@@ -89,4 +94,5 @@ export function calcScrollWindow(scrollTop, measure, numItems, dataTimestamp, op
 export function getMaxIndex(scrollWin) {
     return scrollWin.visibleEndRow * scrollWin.numActualColumns + scrollWin.numActualColumns - 1;
 }
+export { ɵ0 };
 //# sourceMappingURL=measurement.js.map

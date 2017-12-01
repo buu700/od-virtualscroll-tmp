@@ -1,14 +1,26 @@
-export var UserCmdOption = {};
-UserCmdOption.SetScrollTop = 0;
-UserCmdOption.FocusRow = 1;
-UserCmdOption.FocusItem = 2;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+var UserCmdOption = {
+    SetScrollTop: 0,
+    FocusRow: 1,
+    FocusItem: 2,
+};
+export { UserCmdOption };
 UserCmdOption[UserCmdOption.SetScrollTop] = "SetScrollTop";
 UserCmdOption[UserCmdOption.FocusRow] = "FocusRow";
 UserCmdOption[UserCmdOption.FocusItem] = "FocusItem";
+/**
+ * @record
+ */
+export function IUserCmd() { }
+function IUserCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    IUserCmd.prototype.cmdType;
+}
 var SetScrollTopCmd = (function () {
-    /**
-     * @param {?} value
-     */
     function SetScrollTopCmd(value) {
         this.value = value;
         this.cmdType = UserCmdOption.SetScrollTop;
@@ -23,9 +35,6 @@ function SetScrollTopCmd_tsickle_Closure_declarations() {
     SetScrollTopCmd.prototype.value;
 }
 var FocusRowCmd = (function () {
-    /**
-     * @param {?} rowIndex
-     */
     function FocusRowCmd(rowIndex) {
         this.rowIndex = rowIndex;
         this.cmdType = UserCmdOption.FocusRow;
@@ -40,9 +49,6 @@ function FocusRowCmd_tsickle_Closure_declarations() {
     FocusRowCmd.prototype.rowIndex;
 }
 var FocusItemCmd = (function () {
-    /**
-     * @param {?} itemIndex
-     */
     function FocusItemCmd(itemIndex) {
         this.itemIndex = itemIndex;
         this.cmdType = UserCmdOption.FocusItem;

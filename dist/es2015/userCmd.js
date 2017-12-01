@@ -1,10 +1,25 @@
-export let UserCmdOption = {};
-UserCmdOption.SetScrollTop = 0;
-UserCmdOption.FocusRow = 1;
-UserCmdOption.FocusItem = 2;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+const UserCmdOption = {
+    SetScrollTop: 0,
+    FocusRow: 1,
+    FocusItem: 2,
+};
+export { UserCmdOption };
 UserCmdOption[UserCmdOption.SetScrollTop] = "SetScrollTop";
 UserCmdOption[UserCmdOption.FocusRow] = "FocusRow";
 UserCmdOption[UserCmdOption.FocusItem] = "FocusItem";
+/**
+ * @record
+ */
+export function IUserCmd() { }
+function IUserCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    IUserCmd.prototype.cmdType;
+}
 export class SetScrollTopCmd {
     /**
      * @param {?} value

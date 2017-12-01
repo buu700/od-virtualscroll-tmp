@@ -1,9 +1,8 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var ScrollItem = (function () {
-    /**
-     * @param {?} $implicit
-     * @param {?} row
-     * @param {?} column
-     */
     function ScrollItem($implicit, row, column) {
         this.$implicit = $implicit;
         this.row = row;

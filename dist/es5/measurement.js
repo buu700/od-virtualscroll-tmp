@@ -34,6 +34,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * @param {?} data
  * @param {?} rect
  * @param {?} options
@@ -53,7 +57,7 @@ export function calcMeasure(data, rect, options) {
                     _a = options.itemHeight;
                     return [3 /*break*/, 3];
                 case 1: return [4 /*yield*/, (typeof options.itemHeight !== 'function' ? options.itemHeight : Promise.all(data.map(function (item, i) { return __awaiter(_this, void 0, void 0, function () { return __generator(this, function (_a) {
-                        return [2 /*return*/, ((options.itemHeight))(item, i)];
+                        return [2 /*return*/, (/** @type {?} */ (options.itemHeight))(item, i)];
                     }); }); })))];
                 case 2:
                     _a = _b.sent();
@@ -78,6 +82,7 @@ export function calcMeasure(data, rect, options) {
     });
 }
 var /** @type {?} */ clamp = function (min, max, value) { return Math.min(max, Math.max(min, value)); };
+var ɵ0 = clamp;
 /**
  * @param {?} scrollTop
  * @param {?} measure
@@ -133,4 +138,5 @@ export function calcScrollWindow(scrollTop, measure, numItems, dataTimestamp, op
 export function getMaxIndex(scrollWin) {
     return scrollWin.visibleEndRow * scrollWin.numActualColumns + scrollWin.numActualColumns - 1;
 }
+export { ɵ0 };
 //# sourceMappingURL=measurement.js.map

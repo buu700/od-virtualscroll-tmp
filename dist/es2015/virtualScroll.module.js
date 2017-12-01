@@ -1,8 +1,12 @@
-import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
-import { ScrollObservableService } from './service';
-import { VirtualRowComponent } from './virtualRow.component';
-import { VirtualScrollComponent } from './virtualScroll.component';
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { ScrollObservableService } from "./service";
+import { VirtualRowComponent } from "./virtualRow.component";
+import { VirtualScrollComponent } from "./virtualScroll.component";
 export class VirtualScrollModule {
 }
 VirtualScrollModule.decorators = [
@@ -14,16 +18,14 @@ VirtualScrollModule.decorators = [
                 providers: [ScrollObservableService],
             },] },
 ];
-/**
- * @nocollapse
- */
+/** @nocollapse */
 VirtualScrollModule.ctorParameters = () => [];
 function VirtualScrollModule_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     VirtualScrollModule.decorators;
     /**
      * @nocollapse
-     * @type {?}
+     * @type {function(): !Array<(null|{type: ?, decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>)})>}
      */
     VirtualScrollModule.ctorParameters;
 }

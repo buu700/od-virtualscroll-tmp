@@ -1,9 +1,13 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('rxjs/ReplaySubject'), require('rxjs/Subject'), require('rxjs/Observable'), require('rxjs/scheduler/animationFrame'), require('rxjs/add/observable/combineLatest'), require('rxjs/add/observable/concat'), require('rxjs/add/observable/empty'), require('rxjs/add/observable/from'), require('rxjs/add/observable/fromEvent'), require('rxjs/add/observable/merge'), require('rxjs/add/observable/of'), require('rxjs/add/operator/concatMap'), require('rxjs/add/operator/debounceTime'), require('rxjs/add/operator/distinctUntilChanged'), require('rxjs/add/operator/filter'), require('rxjs/add/operator/map'), require('rxjs/add/operator/mergeMap'), require('rxjs/add/operator/pairwise'), require('rxjs/add/operator/partition'), require('rxjs/add/operator/publish'), require('rxjs/add/operator/scan'), require('rxjs/add/operator/startWith'), require('rxjs/add/operator/withLatestFrom')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@angular/common', '@angular/core', 'rxjs/ReplaySubject', 'rxjs/Subject', 'rxjs/Observable', 'rxjs/scheduler/animationFrame', 'rxjs/add/observable/combineLatest', 'rxjs/add/observable/concat', 'rxjs/add/observable/empty', 'rxjs/add/observable/from', 'rxjs/add/observable/fromEvent', 'rxjs/add/observable/merge', 'rxjs/add/observable/of', 'rxjs/add/operator/concatMap', 'rxjs/add/operator/debounceTime', 'rxjs/add/operator/distinctUntilChanged', 'rxjs/add/operator/filter', 'rxjs/add/operator/map', 'rxjs/add/operator/mergeMap', 'rxjs/add/operator/pairwise', 'rxjs/add/operator/partition', 'rxjs/add/operator/publish', 'rxjs/add/operator/scan', 'rxjs/add/operator/startWith', 'rxjs/add/operator/withLatestFrom'], factory) :
-	(factory((global.od = global.od || {}, global.od.virtualscroll = global.od.virtualscroll || {}),global.ng.common,global.ng.core,global.rxjs_ReplaySubject,global.rxjs_Subject,global.rxjs_Observable,global.rxjs_scheduler_animationFrame));
-}(this, (function (exports,_angular_common,_angular_core,rxjs_ReplaySubject,rxjs_Subject,rxjs_Observable,rxjs_scheduler_animationFrame) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/common'), require('@angular/core'), require('rxjs/ReplaySubject'), require('rxjs/Subject'), require('rxjs/Observable'), require('rxjs/scheduler/animationFrame'), require('rxjs/observable/combineLatest'), require('rxjs/observable/concat'), require('rxjs/observable/empty'), require('rxjs/observable/from'), require('rxjs/observable/fromEvent'), require('rxjs/observable/merge'), require('rxjs/observable/of'), require('rxjs/operators/concatMap'), require('rxjs/operators/debounceTime'), require('rxjs/operators/distinctUntilChanged'), require('rxjs/operators/filter'), require('rxjs/operators/map'), require('rxjs/operators/mergeMap'), require('rxjs/operators/pairwise'), require('rxjs/operators/publish'), require('rxjs/operators/scan'), require('rxjs/operators/startWith'), require('rxjs/operators/withLatestFrom')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@angular/common', '@angular/core', 'rxjs/ReplaySubject', 'rxjs/Subject', 'rxjs/Observable', 'rxjs/scheduler/animationFrame', 'rxjs/observable/combineLatest', 'rxjs/observable/concat', 'rxjs/observable/empty', 'rxjs/observable/from', 'rxjs/observable/fromEvent', 'rxjs/observable/merge', 'rxjs/observable/of', 'rxjs/operators/concatMap', 'rxjs/operators/debounceTime', 'rxjs/operators/distinctUntilChanged', 'rxjs/operators/filter', 'rxjs/operators/map', 'rxjs/operators/mergeMap', 'rxjs/operators/pairwise', 'rxjs/operators/publish', 'rxjs/operators/scan', 'rxjs/operators/startWith', 'rxjs/operators/withLatestFrom'], factory) :
+	(factory((global.od = global.od || {}, global.od.virtualscroll = global.od.virtualscroll || {}),global.ng.common,global.ng.core,global.rxjs_ReplaySubject,global.rxjs_Subject,global.rxjs_Observable,global.rxjs_scheduler_animationFrame,global.rxjs_observable_combineLatest,global.rxjs_observable_concat,global.rxjs_observable_empty,global.rxjs_observable_from,global.rxjs_observable_fromEvent,global.rxjs_observable_merge,global.rxjs_observable_of,global.rxjs_operators_concatMap,global.rxjs_operators_debounceTime,global.rxjs_operators_distinctUntilChanged,global.rxjs_operators_filter,global.rxjs_operators_map,global.rxjs_operators_mergeMap,global.rxjs_operators_pairwise,global.rxjs_operators_publish,global.rxjs_operators_scan,global.rxjs_operators_startWith,global.rxjs_operators_withLatestFrom));
+}(this, (function (exports,_angular_common,_angular_core,rxjs_ReplaySubject,rxjs_Subject,rxjs_Observable,rxjs_scheduler_animationFrame,rxjs_observable_combineLatest,rxjs_observable_concat,rxjs_observable_empty,rxjs_observable_from,rxjs_observable_fromEvent,rxjs_observable_merge,rxjs_observable_of,rxjs_operators_concatMap,rxjs_operators_debounceTime,rxjs_operators_distinctUntilChanged,rxjs_operators_filter,rxjs_operators_map,rxjs_operators_mergeMap,rxjs_operators_pairwise,rxjs_operators_publish,rxjs_operators_scan,rxjs_operators_startWith,rxjs_operators_withLatestFrom) { 'use strict';
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var ScrollObservableService = (function () {
     function ScrollObservableService() {
         var _this = this;
@@ -29,29 +33,28 @@ var ScrollObservableService = (function () {
         this.removeItem$ = this._removeItem.asObservable();
         this.emitRemoveItem = function (e) { return _this._removeItem.next(e); };
     }
+    ScrollObservableService.decorators = [
+        { type: _angular_core.Injectable },
+    ];
+    /** @nocollapse */
+    ScrollObservableService.ctorParameters = function () { return []; };
     return ScrollObservableService;
 }());
-ScrollObservableService.decorators = [
-    { type: _angular_core.Injectable },
-];
-/**
- * @nocollapse
- */
-ScrollObservableService.ctorParameters = function () { return []; };
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var VirtualRowComponent = (function () {
-    /**
-     * @param {?} _cdr
-     */
     function VirtualRowComponent(_cdr) {
         this._cdr = _cdr;
         this._translateY = 0;
     }
     Object.defineProperty(VirtualRowComponent.prototype, "getTransform", {
-        /**
+        get: /**
          * @return {?}
          */
-        get: function () {
+        function () {
             return "translateY(" + this._translateY + "px)";
         },
         enumerable: true,
@@ -63,7 +66,13 @@ var VirtualRowComponent = (function () {
      * @param {?=} index
      * @return {?}
      */
-    VirtualRowComponent.prototype.addItem = function (template, context, index) {
+    VirtualRowComponent.prototype.addItem = /**
+     * @param {?} template
+     * @param {?} context
+     * @param {?=} index
+     * @return {?}
+     */
+    function (template, context, index) {
         this._cdr.markForCheck();
         return this._viewContainer.createEmbeddedView(template, context, index);
     };
@@ -71,7 +80,11 @@ var VirtualRowComponent = (function () {
      * @param {?} translateY
      * @return {?}
      */
-    VirtualRowComponent.prototype.setTransform = function (translateY) {
+    VirtualRowComponent.prototype.setTransform = /**
+     * @param {?} translateY
+     * @return {?}
+     */
+    function (translateY) {
         this._translateY = translateY;
     };
     /**
@@ -79,9 +92,14 @@ var VirtualRowComponent = (function () {
      * @param {?} context
      * @return {?}
      */
-    VirtualRowComponent.prototype.updateItem = function (column, context) {
+    VirtualRowComponent.prototype.updateItem = /**
+     * @param {?} column
+     * @param {?} context
+     * @return {?}
+     */
+    function (column, context) {
         this._cdr.markForCheck();
-        var /** @type {?} */ viewRef = (this._viewContainer.get(column));
+        var /** @type {?} */ viewRef = /** @type {?} */ (this._viewContainer.get(column));
         viewRef.context.$implicit = context;
         return viewRef;
     };
@@ -89,7 +107,11 @@ var VirtualRowComponent = (function () {
      * @param {?} column
      * @return {?}
      */
-    VirtualRowComponent.prototype.removeItem = function (column) {
+    VirtualRowComponent.prototype.removeItem = /**
+     * @param {?} column
+     * @return {?}
+     */
+    function (column) {
         this._cdr.markForCheck();
         this._viewContainer.remove(column);
     };
@@ -97,43 +119,50 @@ var VirtualRowComponent = (function () {
      * @param {?} row
      * @return {?}
      */
-    VirtualRowComponent.prototype.updateRow = function (row) {
+    VirtualRowComponent.prototype.updateRow = /**
+     * @param {?} row
+     * @return {?}
+     */
+    function (row) {
         for (var /** @type {?} */ c = 0; c < this._viewContainer.length; c++) {
-            var /** @type {?} */ viewRef = (this._viewContainer.get(c));
+            var /** @type {?} */ viewRef = /** @type {?} */ (this._viewContainer.get(c));
             viewRef.context.row = row;
         }
         this._cdr.markForCheck();
     };
+    VirtualRowComponent.decorators = [
+        { type: _angular_core.Component, args: [{
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    selector: 'od-virtualrow',
+                    styles: [":host { display: block; position: absolute; }"],
+                    template: "<div #viewRef></div>"
+                },] },
+    ];
+    /** @nocollapse */
+    VirtualRowComponent.ctorParameters = function () { return [
+        { type: _angular_core.ChangeDetectorRef, },
+    ]; };
+    VirtualRowComponent.propDecorators = {
+        "_viewContainer": [{ type: _angular_core.ViewChild, args: ['viewRef', { read: _angular_core.ViewContainerRef },] },],
+        "getTransform": [{ type: _angular_core.HostBinding, args: ['style.transform',] },],
+    };
     return VirtualRowComponent;
 }());
-VirtualRowComponent.decorators = [
-    { type: _angular_core.Component, args: [{
-                changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-                selector: 'od-virtualrow',
-                styles: [":host { display: block; position: absolute; }"],
-                template: "<div #viewRef></div>"
-            },] },
-];
-/**
- * @nocollapse
- */
-VirtualRowComponent.ctorParameters = function () { return [
-    { type: _angular_core.ChangeDetectorRef, },
-]; };
-VirtualRowComponent.propDecorators = {
-    '_viewContainer': [{ type: _angular_core.ViewChild, args: ['viewRef', { read: _angular_core.ViewContainerRef },] },],
-    'getTransform': [{ type: _angular_core.HostBinding, args: ['style.transform',] },],
-};
 
-/* tslint:disable:max-classes-per-file */
-var CmdOption = {};
-CmdOption.Noop = 0;
-CmdOption.CreateRow = 1;
-CmdOption.ShiftRow = 2;
-CmdOption.RemoveRow = 3;
-CmdOption.CreateItem = 4;
-CmdOption.UpdateItem = 5;
-CmdOption.RemoveItem = 6;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+var CmdOption = {
+    Noop: 0,
+    CreateRow: 1,
+    ShiftRow: 2,
+    RemoveRow: 3,
+    CreateItem: 4,
+    UpdateItem: 5,
+    RemoveItem: 6,
+};
 CmdOption[CmdOption.Noop] = "Noop";
 CmdOption[CmdOption.CreateRow] = "CreateRow";
 CmdOption[CmdOption.ShiftRow] = "ShiftRow";
@@ -141,6 +170,18 @@ CmdOption[CmdOption.RemoveRow] = "RemoveRow";
 CmdOption[CmdOption.CreateItem] = "CreateItem";
 CmdOption[CmdOption.UpdateItem] = "UpdateItem";
 CmdOption[CmdOption.RemoveItem] = "RemoveItem";
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
+/**
+ * @record
+ */
+
 var NoopCmd = (function () {
     function NoopCmd() {
         this.cmdType = CmdOption.Noop;
@@ -148,11 +189,6 @@ var NoopCmd = (function () {
     return NoopCmd;
 }());
 var CreateRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} initShift
-     */
     function CreateRowCmd(virtualIndex, actualIndex, initShift) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -162,10 +198,6 @@ var CreateRowCmd = (function () {
     return CreateRowCmd;
 }());
 var RemoveRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     */
     function RemoveRowCmd(virtualIndex, actualIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -174,11 +206,6 @@ var RemoveRowCmd = (function () {
     return RemoveRowCmd;
 }());
 var ShiftRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} shift
-     */
     function ShiftRowCmd(virtualIndex, actualIndex, shift) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -188,12 +215,6 @@ var ShiftRowCmd = (function () {
     return ShiftRowCmd;
 }());
 var CreateItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function CreateItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -204,12 +225,6 @@ var CreateItemCmd = (function () {
     return CreateItemCmd;
 }());
 var UpdateItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function UpdateItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -220,12 +235,6 @@ var UpdateItemCmd = (function () {
     return UpdateItemCmd;
 }());
 var RemoveItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function RemoveItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -236,6 +245,10 @@ var RemoveItemCmd = (function () {
     return RemoveItemCmd;
 }());
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * @param {?} start
  * @param {?} end
@@ -315,6 +328,10 @@ var __generator$1 = (undefined && undefined.__generator) || function (thisArg, b
     }
 };
 /**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/**
  * @param {?} data
  * @param {?} rect
  * @param {?} options
@@ -334,7 +351,7 @@ function calcMeasure(data, rect, options) {
                     _a = options.itemHeight;
                     return [3 /*break*/, 3];
                 case 1: return [4 /*yield*/, (typeof options.itemHeight !== 'function' ? options.itemHeight : Promise.all(data.map(function (item, i) { return __awaiter$1(_this, void 0, void 0, function () { return __generator$1(this, function (_a) {
-                        return [2 /*return*/, ((options.itemHeight))(item, i)];
+                        return [2 /*return*/, (/** @type {?} */ (options.itemHeight))(item, i)];
                     }); }); })))];
                 case 2:
                     _a = _b.sent();
@@ -415,12 +432,11 @@ function getMaxIndex(scrollWin) {
     return scrollWin.visibleEndRow * scrollWin.numActualColumns + scrollWin.numActualColumns - 1;
 }
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var ScrollItem = (function () {
-    /**
-     * @param {?} $implicit
-     * @param {?} row
-     * @param {?} column
-     */
     function ScrollItem($implicit, row, column) {
         this.$implicit = $implicit;
         this.row = row;
@@ -429,6 +445,10 @@ var ScrollItem = (function () {
     return ScrollItem;
 }());
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 /**
  * @param {?} obj
  * @return {?}
@@ -465,17 +485,24 @@ function difference(a, b) {
     return result;
 }
 
-var UserCmdOption = {};
-UserCmdOption.SetScrollTop = 0;
-UserCmdOption.FocusRow = 1;
-UserCmdOption.FocusItem = 2;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+var UserCmdOption = {
+    SetScrollTop: 0,
+    FocusRow: 1,
+    FocusItem: 2,
+};
 UserCmdOption[UserCmdOption.SetScrollTop] = "SetScrollTop";
 UserCmdOption[UserCmdOption.FocusRow] = "FocusRow";
 UserCmdOption[UserCmdOption.FocusItem] = "FocusItem";
+/**
+ * @record
+ */
+
 var SetScrollTopCmd = (function () {
-    /**
-     * @param {?} value
-     */
     function SetScrollTopCmd(value) {
         this.value = value;
         this.cmdType = UserCmdOption.SetScrollTop;
@@ -483,9 +510,6 @@ var SetScrollTopCmd = (function () {
     return SetScrollTopCmd;
 }());
 var FocusRowCmd = (function () {
-    /**
-     * @param {?} rowIndex
-     */
     function FocusRowCmd(rowIndex) {
         this.rowIndex = rowIndex;
         this.cmdType = UserCmdOption.FocusRow;
@@ -493,9 +517,6 @@ var FocusRowCmd = (function () {
     return FocusRowCmd;
 }());
 var FocusItemCmd = (function () {
-    /**
-     * @param {?} itemIndex
-     */
     function FocusItemCmd(itemIndex) {
         this.itemIndex = itemIndex;
         this.cmdType = UserCmdOption.FocusItem;
@@ -538,22 +559,20 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var VirtualScrollComponent = (function () {
-    /**
-     * @param {?} _elem
-     * @param {?} _cdr
-     * @param {?} _componentFactoryResolver
-     * @param {?} _obsService
-     */
     function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService) {
         this._elem = _elem;
         this._cdr = _cdr;
         this._componentFactoryResolver = _componentFactoryResolver;
         this._obsService = _obsService;
-        this.vsData = rxjs_Observable.Observable.empty();
-        this.vsOptions = rxjs_Observable.Observable.empty();
-        this.vsResize = rxjs_Observable.Observable.empty();
-        this.vsUserCmd = rxjs_Observable.Observable.empty();
+        this.vsData = rxjs_observable_empty.empty();
+        this.vsOptions = rxjs_observable_empty.empty();
+        this.vsResize = rxjs_observable_empty.empty();
+        this.vsUserCmd = rxjs_observable_empty.empty();
         this.vsDebounceTime = 0;
         this.vsEqualsFunc = function (prevIndex, curIndex) { return prevIndex === curIndex; };
         this.height = 0;
@@ -562,31 +581,39 @@ var VirtualScrollComponent = (function () {
         this._subs = [];
     }
     /**
+     * @template T
+     * @param {?} source
      * @return {?}
      */
-    VirtualScrollComponent.prototype.ngOnInit = function () {
+    VirtualScrollComponent.prototype.publish = /**
+     * @template T
+     * @param {?} source
+     * @return {?}
+     */
+    function (source) {
+        return rxjs_operators_publish.publish()(source);
+    };
+    /**
+     * @return {?}
+     */
+    VirtualScrollComponent.prototype.ngOnInit = /**
+     * @return {?}
+     */
+    function () {
         var _this = this;
         var /** @type {?} */ getContainerRect = function () { return _this._elem.nativeElement.getBoundingClientRect(); };
         var /** @type {?} */ getScrollTop = function () { return _this._elem.nativeElement.scrollTop; };
         var /** @type {?} */ setScrollTop = function (scrollTop) { _this._elem.nativeElement.scrollTop = scrollTop; };
         var /** @type {?} */ initData = [];
-        var /** @type {?} */ data$ = this.vsData.startWith(initData).publish();
+        var /** @type {?} */ data$ = this.publish(this.vsData.pipe(rxjs_operators_startWith.startWith(initData)));
         var /** @type {?} */ defaultOptions = { itemWidth: 100, itemHeight: 100, numAdditionalRows: 1 };
-        var /** @type {?} */ options$ = this.vsOptions.startWith(defaultOptions).publish();
-        var /** @type {?} */ rect$ = rxjs_Observable.Observable.merge(rxjs_Observable.Observable.fromEvent(window, 'resize'), this.vsResize)
-            .debounceTime(this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame)
-            .map(function () { return getContainerRect(); })
-            .startWith(getContainerRect())
-            .map(function (_a) {
+        var /** @type {?} */ options$ = this.publish(this.vsOptions.pipe(rxjs_operators_startWith.startWith(defaultOptions)));
+        var /** @type {?} */ rect$ = rxjs_observable_merge.merge(rxjs_observable_fromEvent.fromEvent(window, 'resize'), this.vsResize).pipe(rxjs_operators_debounceTime.debounceTime(this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame), rxjs_operators_map.map(function () { return getContainerRect(); }), rxjs_operators_startWith.startWith(getContainerRect()), rxjs_operators_map.map(function (_a) {
             var width = _a.width, height = _a.height;
             return ({ width: width, height: height });
-        });
-        var /** @type {?} */ scrollTop$ = rxjs_Observable.Observable.fromEvent(this._elem.nativeElement, 'scroll')
-            .debounceTime(this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame)
-            .map(function () { return getScrollTop(); })
-            .startWith(0);
-        var /** @type {?} */ measure$ = rxjs_Observable.Observable.combineLatest(data$, rect$, options$)
-            .mergeMap(function (_a) {
+        }));
+        var /** @type {?} */ scrollTop$ = rxjs_observable_fromEvent.fromEvent(this._elem.nativeElement, 'scroll').pipe(rxjs_operators_debounceTime.debounceTime(this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame), rxjs_operators_map.map(function () { return getScrollTop(); }), rxjs_operators_startWith.startWith(0));
+        var /** @type {?} */ measure$ = this.publish(rxjs_observable_combineLatest.combineLatest(data$, rect$, options$).pipe(rxjs_operators_mergeMap.mergeMap(function (_a) {
             var data = _a[0], rect = _a[1], options = _a[2];
             return __awaiter(_this, void 0, void 0, function () {
                 var measurement;
@@ -603,26 +630,22 @@ var VirtualScrollComponent = (function () {
                     }
                 });
             });
-        })
-            .publish();
-        var /** @type {?} */ scrollWin$ = rxjs_Observable.Observable.combineLatest(scrollTop$, measure$, options$)
-            .map(function (_a) {
+        })));
+        var /** @type {?} */ scrollWin$ = this.publish(rxjs_observable_combineLatest.combineLatest(scrollTop$, measure$, options$).pipe(rxjs_operators_map.map(function (_a) {
             var scrollTop = _a[0], _b = _a[1], measurement = _b.measurement, dataTimestamp = _b.dataTimestamp, dataLength = _b.dataLength, options = _a[2];
             return calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options);
-        })
-            .distinctUntilChanged(function (prevWin, curWin) {
+        }), rxjs_operators_distinctUntilChanged.distinctUntilChanged(function (prevWin, curWin) {
             return prevWin.visibleStartRow === curWin.visibleStartRow &&
                 prevWin.visibleEndRow === curWin.visibleEndRow &&
                 prevWin.numActualColumns === curWin.numActualColumns &&
                 prevWin.numVirtualItems === curWin.numVirtualItems &&
                 prevWin.dataTimestamp === curWin.dataTimestamp;
-        })
-            .publish();
-        var /** @type {?} */ dScrollWin$ = scrollWin$.pairwise();
-        var /** @type {?} */ renderCmd$ = dScrollWin$.concatMap(function (_a) {
+        })));
+        var /** @type {?} */ dScrollWin$ = scrollWin$.pipe(rxjs_operators_pairwise.pairwise());
+        var /** @type {?} */ renderCmd$ = this.publish(dScrollWin$.pipe(rxjs_operators_concatMap.concatMap(function (_a) {
             var prevWin = _a[0], curWin = _a[1];
-            var /** @type {?} */ rowsDiffCmd$ = rxjs_Observable.Observable.of(new NoopCmd());
-            var /** @type {?} */ rowsUpdateCmd$ = rxjs_Observable.Observable.of(new NoopCmd());
+            var /** @type {?} */ rowsDiffCmd$ = rxjs_observable_of.of(new NoopCmd());
+            var /** @type {?} */ rowsUpdateCmd$ = rxjs_observable_of.of(new NoopCmd());
             var /** @type {?} */ prevIndexMap = {};
             var /** @type {?} */ curIndexMap = {};
             // abs: prevent iterating when prevWin has -1 -> -1
@@ -647,9 +670,9 @@ var VirtualScrollComponent = (function () {
                     });
                 };
                 for (var /** @type {?} */ key in removeRowsMap) {
-                    _loop_1(/** @type {?} */ key);
+                    _loop_1(key);
                 }
-                rowsDiffCmd$ = rxjs_Observable.Observable.concat(rxjs_Observable.Observable.from(removeItemCmds_1.reverse()), rxjs_Observable.Observable.from(removeRowCmds));
+                rowsDiffCmd$ = rxjs_observable_concat.concat(rxjs_observable_from.from(removeItemCmds_1.reverse()), rxjs_observable_from.from(removeRowCmds));
             }
             else if (!isEmpty(createRowsMap)) {
                 var /** @type {?} */ createRowCmds = [];
@@ -663,9 +686,9 @@ var VirtualScrollComponent = (function () {
                     });
                 };
                 for (var /** @type {?} */ key in createRowsMap) {
-                    _loop_2(/** @type {?} */ key);
+                    _loop_2(key);
                 }
-                rowsDiffCmd$ = rxjs_Observable.Observable.concat(rxjs_Observable.Observable.from(createRowCmds), rxjs_Observable.Observable.from(createItemCmds_1));
+                rowsDiffCmd$ = rxjs_observable_concat.concat(rxjs_observable_from.from(createRowCmds), rxjs_observable_from.from(createItemCmds_1));
             }
             var /** @type {?} */ existingRows = intersection(prevIndexMap, curIndexMap);
             if (!isEmpty(existingRows)) {
@@ -709,115 +732,106 @@ var VirtualScrollComponent = (function () {
                     }
                 };
                 for (var /** @type {?} */ key in existingRows) {
-                    _loop_3(/** @type {?} */ key);
+                    _loop_3(key);
                 }
-                rowsUpdateCmd$ = rxjs_Observable.Observable.concat(rxjs_Observable.Observable.merge(rxjs_Observable.Observable.from(removeItemCmds_2.reverse()), rxjs_Observable.Observable.from(createItemCmds_2), rxjs_Observable.Observable.from(updateItemCmds_1), rxjs_Observable.Observable.from(shiftRowCmds)), rxjs_Observable.Observable.merge(rxjs_Observable.Observable.from(columnDiffRemoveItemCmds_1.reverse()), rxjs_Observable.Observable.from(columnDiffCreateItemCmds_1)));
+                rowsUpdateCmd$ = rxjs_observable_concat.concat(rxjs_observable_merge.merge(rxjs_observable_from.from(removeItemCmds_2.reverse()), rxjs_observable_from.from(createItemCmds_2), rxjs_observable_from.from(updateItemCmds_1), rxjs_observable_from.from(shiftRowCmds)), rxjs_observable_merge.merge(rxjs_observable_from.from(columnDiffRemoveItemCmds_1.reverse()), rxjs_observable_from.from(columnDiffCreateItemCmds_1)));
             }
-            return rxjs_Observable.Observable.merge(rowsDiffCmd$, rowsUpdateCmd$);
-        }).publish();
-        var /** @type {?} */ updateScrollWinFunc$ = scrollWin$.map(function (scrollWindow) { return function (state) {
-            state.scrollWindow = scrollWindow;
-            _this._obsService.emitScrollWin([scrollWindow]);
-            state.needsCheck = true;
-            return state;
-        }; });
-        var /** @type {?} */ createRowFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.CreateRow; })
-            .map(function (cmd) { return function (state) {
-            var /** @type {?} */ newRow = _this._viewContainer.createComponent(_this._rowFactory);
-            newRow.instance.setTransform(cmd.initShift);
-            state.rows[cmd.actualIndex] = newRow;
-            _this._obsService.emitCreateRow([cmd, newRow]);
-            state.needsCheck = false;
-            return state;
-        }; });
-        var /** @type {?} */ removeRowFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.RemoveRow; })
-            .map(function (cmd) { return function (state) {
-            var /** @type {?} */ rowComp = state.rows[cmd.actualIndex];
-            rowComp.destroy();
-            delete state.rows[cmd.actualIndex];
-            _this._obsService.emitRemoveRow([cmd, rowComp]);
-            state.needsCheck = false;
-            return state;
-        }; });
-        var /** @type {?} */ shiftRowFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.ShiftRow; })
-            .map(function (cmd) { return function (state) {
-            var /** @type {?} */ shift = (cmd);
-            var /** @type {?} */ row = state.rows[shift.actualIndex];
-            row.instance.updateRow(shift.virtualIndex);
-            row.instance.setTransform(shift.shift);
-            _this._obsService.emitShiftRow([shift, row]);
-            state.needsCheck = false;
-            return state;
-        }; });
-        var /** @type {?} */ createItemFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.CreateItem; })
-            .withLatestFrom(data$)
-            .map(function (_a) {
+            return rxjs_observable_merge.merge(rowsDiffCmd$, rowsUpdateCmd$);
+        })));
+        var /** @type {?} */ updateScrollWinFunc$ = scrollWin$.pipe(rxjs_operators_map.map(function (scrollWindow) {
+            return function (state) {
+                state.scrollWindow = scrollWindow;
+                _this._obsService.emitScrollWin([scrollWindow]);
+                state.needsCheck = true;
+                return state;
+            };
+        }));
+        var /** @type {?} */ createRowFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.CreateRow; }), rxjs_operators_map.map(function (cmd) {
+            return function (state) {
+                var /** @type {?} */ newRow = _this._viewContainer.createComponent(_this._rowFactory);
+                newRow.instance.setTransform(cmd.initShift);
+                state.rows[cmd.actualIndex] = newRow;
+                _this._obsService.emitCreateRow([cmd, newRow]);
+                state.needsCheck = false;
+                return state;
+            };
+        }));
+        var /** @type {?} */ removeRowFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.RemoveRow; }), rxjs_operators_map.map(function (cmd) {
+            return function (state) {
+                var /** @type {?} */ rowComp = state.rows[cmd.actualIndex];
+                rowComp.destroy();
+                delete state.rows[cmd.actualIndex];
+                _this._obsService.emitRemoveRow([cmd, rowComp]);
+                state.needsCheck = false;
+                return state;
+            };
+        }));
+        var /** @type {?} */ shiftRowFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.ShiftRow; }), rxjs_operators_map.map(function (cmd) {
+            return function (state) {
+                var /** @type {?} */ shift = /** @type {?} */ (cmd);
+                var /** @type {?} */ row = state.rows[shift.actualIndex];
+                row.instance.updateRow(shift.virtualIndex);
+                row.instance.setTransform(shift.shift);
+                _this._obsService.emitShiftRow([shift, row]);
+                state.needsCheck = false;
+                return state;
+            };
+        }));
+        var /** @type {?} */ createItemFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.CreateItem; }), rxjs_operators_withLatestFrom.withLatestFrom(data$), rxjs_operators_map.map(function (_a) {
             var cmd = _a[0], data = _a[1];
             return function (state) {
-                var /** @type {?} */ createItem = (cmd);
+                var /** @type {?} */ createItem = /** @type {?} */ (cmd);
                 var /** @type {?} */ item = new ScrollItem(data[createItem.dataIndex], createItem.virtualIndex, createItem.columnIndex);
                 var /** @type {?} */ viewRef = state.rows[createItem.actualIndex].instance.addItem(_this._templateRef, item);
                 _this._obsService.emitCreateItem([createItem, item, viewRef]);
                 state.needsCheck = false;
                 return state;
             };
-        });
-        var /** @type {?} */ updateItemFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.UpdateItem; })
-            .withLatestFrom(data$)
-            .map(function (_a) {
+        }));
+        var /** @type {?} */ updateItemFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.UpdateItem; }), rxjs_operators_withLatestFrom.withLatestFrom(data$), rxjs_operators_map.map(function (_a) {
             var cmd = _a[0], data = _a[1];
             return function (state) {
-                var /** @type {?} */ update = (cmd);
+                var /** @type {?} */ update = /** @type {?} */ (cmd);
                 var /** @type {?} */ item = data[update.dataIndex];
                 var /** @type {?} */ viewRef = state.rows[update.actualIndex].instance.updateItem(update.columnIndex, item);
                 _this._obsService.emitUpdateItem([update, item, viewRef]);
                 state.needsCheck = false;
                 return state;
             };
-        });
-        var /** @type {?} */ removeItemFunc$ = renderCmd$
-            .filter(function (cmd) { return cmd.cmdType === CmdOption.RemoveItem; })
-            .map(function (cmd) { return function (state) {
-            var /** @type {?} */ comp = state.rows[cmd.actualIndex];
-            comp.instance.removeItem(cmd.columnIndex);
-            _this._obsService.emitRemoveItem([cmd]);
-            state.needsCheck = false;
-            return state;
-        }; });
-        var /** @type {?} */ userCmd$ = this.vsUserCmd.publish();
-        var /** @type {?} */ userSetScrollTop$ = userCmd$.filter(function (cmd) { return cmd.cmdType === UserCmdOption.SetScrollTop; });
-        var /** @type {?} */ focusRowSetScrollTop$ = userCmd$
-            .filter(function (cmd) { return cmd.cmdType === UserCmdOption.FocusRow; })
-            .withLatestFrom(scrollWin$)
-            .map(function (_a) {
+        }));
+        var /** @type {?} */ removeItemFunc$ = renderCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === CmdOption.RemoveItem; }), rxjs_operators_map.map(function (cmd) {
+            return function (state) {
+                var /** @type {?} */ comp = state.rows[cmd.actualIndex];
+                comp.instance.removeItem(cmd.columnIndex);
+                _this._obsService.emitRemoveItem([cmd]);
+                state.needsCheck = false;
+                return state;
+            };
+        }));
+        var /** @type {?} */ userCmd$ = this.publish(this.vsUserCmd);
+        var /** @type {?} */ userSetScrollTop$ = userCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === UserCmdOption.SetScrollTop; }));
+        var /** @type {?} */ focusRowSetScrollTop$ = userCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === UserCmdOption.FocusRow; }), rxjs_operators_withLatestFrom.withLatestFrom(scrollWin$), rxjs_operators_map.map(function (_a) {
             var cmd = _a[0], scrollWin = _a[1];
-            var /** @type {?} */ focusRow = (cmd);
+            var /** @type {?} */ focusRow = /** @type {?} */ (cmd);
             return new SetScrollTopCmd(scrollWin.rowShifts !== undefined ? scrollWin.rowShifts[focusRow.rowIndex] : typeof scrollWin.itemHeight === 'number' ? (focusRow.rowIndex * scrollWin.itemHeight) : 0);
-        });
-        var /** @type {?} */ focusItemSetScrollTop$ = userCmd$
-            .filter(function (cmd) { return cmd.cmdType === UserCmdOption.FocusItem; })
-            .withLatestFrom(scrollWin$)
-            .map(function (_a) {
+        }));
+        var /** @type {?} */ focusItemSetScrollTop$ = userCmd$.pipe(rxjs_operators_filter.filter(function (cmd) { return cmd.cmdType === UserCmdOption.FocusItem; }), rxjs_operators_withLatestFrom.withLatestFrom(scrollWin$), rxjs_operators_map.map(function (_a) {
             var cmd = _a[0], scrollWin = _a[1];
-            var /** @type {?} */ focusItem = (cmd);
+            var /** @type {?} */ focusItem = /** @type {?} */ (cmd);
             return new SetScrollTopCmd(scrollWin.rowShifts !== undefined ? scrollWin.rowShifts[focusItem.itemIndex] : typeof scrollWin.itemHeight === 'number' ? (Math.floor(focusItem.itemIndex / scrollWin.numActualColumns) * scrollWin.itemHeight) : 0);
-        });
-        var /** @type {?} */ setScrollTopFunc$ = rxjs_Observable.Observable.merge(userSetScrollTop$, focusRowSetScrollTop$, focusItemSetScrollTop$)
-            .map(function (cmd) { return function (state) {
-            setScrollTop(cmd.value);
-            state.needsCheck = false;
-            return state;
-        }; });
+        }));
+        var /** @type {?} */ setScrollTopFunc$ = rxjs_observable_merge.merge(userSetScrollTop$, focusRowSetScrollTop$, focusItemSetScrollTop$).pipe(rxjs_operators_map.map(function (cmd) {
+            return function (state) {
+                setScrollTop(cmd.value);
+                state.needsCheck = false;
+                return state;
+            };
+        }));
         var /** @type {?} */ scanFunc = function (state, changeFn) { return changeFn(state); };
         // Update store
-        var /** @type {?} */ main$ = rxjs_Observable.Observable.merge(createRowFunc$, removeRowFunc$, shiftRowFunc$, createItemFunc$, removeItemFunc$, updateItemFunc$, updateScrollWinFunc$, setScrollTopFunc$)
-            .scan(scanFunc, { measurement: null, scrollWindow: null, rows: {}, needsCheck: false });
-        this._subs.push(main$.filter(function (state) { return state.needsCheck && state.scrollWindow !== null; }).subscribe(function (state) {
+        var /** @type {?} */ main$ = rxjs_observable_merge.merge(createRowFunc$, removeRowFunc$, shiftRowFunc$, createItemFunc$, removeItemFunc$, updateItemFunc$, updateScrollWinFunc$, setScrollTopFunc$)
+            .pipe(rxjs_operators_scan.scan(scanFunc, { measurement: null, scrollWindow: null, rows: {}, needsCheck: false }));
+        this._subs.push(main$.pipe(rxjs_operators_filter.filter(function (state) { return state.needsCheck && state.scrollWindow !== null; })).subscribe(function (state) {
             _this.height = state.scrollWindow.virtualHeight;
             if (state.scrollWindow.itemWidth === undefined) {
                 _this.width = '100%';
@@ -838,57 +852,65 @@ var VirtualScrollComponent = (function () {
     /**
      * @return {?}
      */
-    VirtualScrollComponent.prototype.ngOnDestroy = function () {
+    VirtualScrollComponent.prototype.ngOnDestroy = /**
+     * @return {?}
+     */
+    function () {
         this._subs.forEach(function (sub) { return sub.unsubscribe(); });
+    };
+    VirtualScrollComponent.decorators = [
+        { type: _angular_core.Component, args: [{
+                    changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
+                    selector: 'od-virtualscroll',
+                    styles: ["\n    :host {\n      display: block;\n      height: 100%;\n      overflow-y: scroll;\n    }\n\n    .od-scroll-container {\n      position: relative;\n      width: 100%;\n    }\n  "],
+                    template: "\n    <div class=\"od-scroll-container\" [style.width]=\"width\" [style.height.px]=\"height\">\n      <div #viewRef><div>\n    </div>",
+                },] },
+    ];
+    /** @nocollapse */
+    VirtualScrollComponent.ctorParameters = function () { return [
+        { type: _angular_core.ElementRef, },
+        { type: _angular_core.ChangeDetectorRef, },
+        { type: _angular_core.ComponentFactoryResolver, },
+        { type: ScrollObservableService, },
+    ]; };
+    VirtualScrollComponent.propDecorators = {
+        "_templateRef": [{ type: _angular_core.ContentChild, args: [_angular_core.TemplateRef,] },],
+        "_viewContainer": [{ type: _angular_core.ViewChild, args: ['viewRef', { read: _angular_core.ViewContainerRef },] },],
+        "vsData": [{ type: _angular_core.Input },],
+        "vsOptions": [{ type: _angular_core.Input },],
+        "vsResize": [{ type: _angular_core.Input },],
+        "vsUserCmd": [{ type: _angular_core.Input },],
+        "vsDebounceTime": [{ type: _angular_core.Input },],
+        "vsEqualsFunc": [{ type: _angular_core.Input },],
     };
     return VirtualScrollComponent;
 }());
-VirtualScrollComponent.decorators = [
-    { type: _angular_core.Component, args: [{
-                changeDetection: _angular_core.ChangeDetectionStrategy.OnPush,
-                selector: 'od-virtualscroll',
-                styles: ["\n    :host {\n      display: block;\n      height: 100%;\n      overflow-y: scroll;\n    }\n\n    .od-scroll-container {\n      position: relative;\n      width: 100%;\n    }\n  "],
-                template: "\n    <div class=\"od-scroll-container\" [style.width]=\"width\" [style.height.px]=\"height\">\n      <div #viewRef><div>\n    </div>",
-            },] },
-];
-/**
- * @nocollapse
- */
-VirtualScrollComponent.ctorParameters = function () { return [
-    { type: _angular_core.ElementRef, },
-    { type: _angular_core.ChangeDetectorRef, },
-    { type: _angular_core.ComponentFactoryResolver, },
-    { type: ScrollObservableService, },
-]; };
-VirtualScrollComponent.propDecorators = {
-    '_templateRef': [{ type: _angular_core.ContentChild, args: [_angular_core.TemplateRef,] },],
-    '_viewContainer': [{ type: _angular_core.ViewChild, args: ['viewRef', { read: _angular_core.ViewContainerRef },] },],
-    'vsData': [{ type: _angular_core.Input },],
-    'vsOptions': [{ type: _angular_core.Input },],
-    'vsResize': [{ type: _angular_core.Input },],
-    'vsUserCmd': [{ type: _angular_core.Input },],
-    'vsDebounceTime': [{ type: _angular_core.Input },],
-    'vsEqualsFunc': [{ type: _angular_core.Input },],
-};
 
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
 var VirtualScrollModule = (function () {
     function VirtualScrollModule() {
     }
+    VirtualScrollModule.decorators = [
+        { type: _angular_core.NgModule, args: [{
+                    declarations: [VirtualRowComponent, VirtualScrollComponent],
+                    entryComponents: [VirtualRowComponent],
+                    exports: [VirtualScrollComponent],
+                    imports: [_angular_common.CommonModule],
+                    providers: [ScrollObservableService],
+                },] },
+    ];
+    /** @nocollapse */
+    VirtualScrollModule.ctorParameters = function () { return []; };
     return VirtualScrollModule;
 }());
-VirtualScrollModule.decorators = [
-    { type: _angular_core.NgModule, args: [{
-                declarations: [VirtualRowComponent, VirtualScrollComponent],
-                entryComponents: [VirtualRowComponent],
-                exports: [VirtualScrollComponent],
-                imports: [_angular_common.CommonModule],
-                providers: [ScrollObservableService],
-            },] },
-];
+
 /**
- * @nocollapse
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
  */
-VirtualScrollModule.ctorParameters = function () { return []; };
 
 exports.VirtualScrollModule = VirtualScrollModule;
 exports.ScrollObservableService = ScrollObservableService;

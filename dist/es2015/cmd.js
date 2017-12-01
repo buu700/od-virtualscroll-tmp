@@ -1,12 +1,18 @@
-/* tslint:disable:max-classes-per-file */
-export let CmdOption = {};
-CmdOption.Noop = 0;
-CmdOption.CreateRow = 1;
-CmdOption.ShiftRow = 2;
-CmdOption.RemoveRow = 3;
-CmdOption.CreateItem = 4;
-CmdOption.UpdateItem = 5;
-CmdOption.RemoveItem = 6;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+const CmdOption = {
+    Noop: 0,
+    CreateRow: 1,
+    ShiftRow: 2,
+    RemoveRow: 3,
+    CreateItem: 4,
+    UpdateItem: 5,
+    RemoveItem: 6,
+};
+export { CmdOption };
 CmdOption[CmdOption.Noop] = "Noop";
 CmdOption[CmdOption.CreateRow] = "CreateRow";
 CmdOption[CmdOption.ShiftRow] = "ShiftRow";
@@ -14,6 +20,34 @@ CmdOption[CmdOption.RemoveRow] = "RemoveRow";
 CmdOption[CmdOption.CreateItem] = "CreateItem";
 CmdOption[CmdOption.UpdateItem] = "UpdateItem";
 CmdOption[CmdOption.RemoveItem] = "RemoveItem";
+/**
+ * @record
+ */
+export function ICmd() { }
+function ICmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    ICmd.prototype.cmdType;
+}
+/**
+ * @record
+ */
+export function IRowRenderCmd() { }
+function IRowRenderCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    IRowRenderCmd.prototype.virtualIndex;
+    /** @type {?} */
+    IRowRenderCmd.prototype.actualIndex;
+}
+/**
+ * @record
+ */
+export function ItemRenderCmd() { }
+function ItemRenderCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    ItemRenderCmd.prototype.columnIndex;
+    /** @type {?} */
+    ItemRenderCmd.prototype.dataIndex;
+}
 export class NoopCmd {
     constructor() {
         this.cmdType = CmdOption.Noop;

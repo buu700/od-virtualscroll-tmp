@@ -1,6 +1,10 @@
-import { Injectable } from '@angular/core';
-import { ReplaySubject } from 'rxjs/ReplaySubject';
-import { Subject } from 'rxjs/Subject';
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+import { Injectable } from "@angular/core";
+import { ReplaySubject } from "rxjs/ReplaySubject";
+import { Subject } from "rxjs/Subject";
 var ScrollObservableService = (function () {
     function ScrollObservableService() {
         var _this = this;
@@ -26,22 +30,20 @@ var ScrollObservableService = (function () {
         this.removeItem$ = this._removeItem.asObservable();
         this.emitRemoveItem = function (e) { return _this._removeItem.next(e); };
     }
+    ScrollObservableService.decorators = [
+        { type: Injectable },
+    ];
+    /** @nocollapse */
+    ScrollObservableService.ctorParameters = function () { return []; };
     return ScrollObservableService;
 }());
 export { ScrollObservableService };
-ScrollObservableService.decorators = [
-    { type: Injectable },
-];
-/**
- * @nocollapse
- */
-ScrollObservableService.ctorParameters = function () { return []; };
 function ScrollObservableService_tsickle_Closure_declarations() {
-    /** @type {?} */
+    /** @type {!Array<{type: !Function, args: (undefined|!Array<?>)}>} */
     ScrollObservableService.decorators;
     /**
      * @nocollapse
-     * @type {?}
+     * @type {function(): !Array<(null|{type: ?, decorators: (undefined|!Array<{type: !Function, args: (undefined|!Array<?>)}>)})>}
      */
     ScrollObservableService.ctorParameters;
     /** @type {?} */

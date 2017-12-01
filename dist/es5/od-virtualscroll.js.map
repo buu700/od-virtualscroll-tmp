@@ -1,1 +1,1 @@
-{"version":3,"sources":["../../src/od-virtualscroll.ts"],"names":[],"mappings":"AAAA;;GAEG;AAEH,OAAO,EAAC,mBAAmB,EAA4C,uBAAuB,EAAC,mBAAmB,EAAC,UAAU,EAAkC,YAAY,EAAC,YAAY,EAAC,WAAW,EAAC,aAAa,EAAC,aAAa,EAAC,aAAa,EAAC,SAAS,EAAC,YAAY,EAAC,WAAW,EAAU,eAAe,EAAC,aAAa,EAAC,MAAM,OAAO,CAAC;AAEvU,OAAO,EAAA,sBAAE,IAAyB,EAAA,EAAG,MAAA,2BAAA,CAAA","file":"od-virtualscroll.js","sourceRoot":""}
+{"version":3,"file":"od-virtualscroll.js","sourceRoot":"","sources":["../../src/od-virtualscroll.ts"],"names":[],"mappings":";;;;;;;AAIA,kQAAsB;AAEtB,OAAO,EAAC,sBAAsB,IAAI,EAAE,EAAC,kCAAkC"}

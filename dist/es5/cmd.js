@@ -1,12 +1,18 @@
-/* tslint:disable:max-classes-per-file */
-export var CmdOption = {};
-CmdOption.Noop = 0;
-CmdOption.CreateRow = 1;
-CmdOption.ShiftRow = 2;
-CmdOption.RemoveRow = 3;
-CmdOption.CreateItem = 4;
-CmdOption.UpdateItem = 5;
-CmdOption.RemoveItem = 6;
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes} checked by tsc
+ */
+/** @enum {number} */
+var CmdOption = {
+    Noop: 0,
+    CreateRow: 1,
+    ShiftRow: 2,
+    RemoveRow: 3,
+    CreateItem: 4,
+    UpdateItem: 5,
+    RemoveItem: 6,
+};
+export { CmdOption };
 CmdOption[CmdOption.Noop] = "Noop";
 CmdOption[CmdOption.CreateRow] = "CreateRow";
 CmdOption[CmdOption.ShiftRow] = "ShiftRow";
@@ -14,6 +20,34 @@ CmdOption[CmdOption.RemoveRow] = "RemoveRow";
 CmdOption[CmdOption.CreateItem] = "CreateItem";
 CmdOption[CmdOption.UpdateItem] = "UpdateItem";
 CmdOption[CmdOption.RemoveItem] = "RemoveItem";
+/**
+ * @record
+ */
+export function ICmd() { }
+function ICmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    ICmd.prototype.cmdType;
+}
+/**
+ * @record
+ */
+export function IRowRenderCmd() { }
+function IRowRenderCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    IRowRenderCmd.prototype.virtualIndex;
+    /** @type {?} */
+    IRowRenderCmd.prototype.actualIndex;
+}
+/**
+ * @record
+ */
+export function ItemRenderCmd() { }
+function ItemRenderCmd_tsickle_Closure_declarations() {
+    /** @type {?} */
+    ItemRenderCmd.prototype.columnIndex;
+    /** @type {?} */
+    ItemRenderCmd.prototype.dataIndex;
+}
 var NoopCmd = (function () {
     function NoopCmd() {
         this.cmdType = CmdOption.Noop;
@@ -26,11 +60,6 @@ function NoopCmd_tsickle_Closure_declarations() {
     NoopCmd.prototype.cmdType;
 }
 var CreateRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} initShift
-     */
     function CreateRowCmd(virtualIndex, actualIndex, initShift) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -51,10 +80,6 @@ function CreateRowCmd_tsickle_Closure_declarations() {
     CreateRowCmd.prototype.initShift;
 }
 var RemoveRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     */
     function RemoveRowCmd(virtualIndex, actualIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -72,11 +97,6 @@ function RemoveRowCmd_tsickle_Closure_declarations() {
     RemoveRowCmd.prototype.actualIndex;
 }
 var ShiftRowCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} shift
-     */
     function ShiftRowCmd(virtualIndex, actualIndex, shift) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -97,12 +117,6 @@ function ShiftRowCmd_tsickle_Closure_declarations() {
     ShiftRowCmd.prototype.shift;
 }
 var CreateItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function CreateItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -126,12 +140,6 @@ function CreateItemCmd_tsickle_Closure_declarations() {
     CreateItemCmd.prototype.dataIndex;
 }
 var UpdateItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function UpdateItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
@@ -155,12 +163,6 @@ function UpdateItemCmd_tsickle_Closure_declarations() {
     UpdateItemCmd.prototype.dataIndex;
 }
 var RemoveItemCmd = (function () {
-    /**
-     * @param {?} virtualIndex
-     * @param {?} actualIndex
-     * @param {?} columnIndex
-     * @param {?} dataIndex
-     */
     function RemoveItemCmd(virtualIndex, actualIndex, columnIndex, dataIndex) {
         this.virtualIndex = virtualIndex;
         this.actualIndex = actualIndex;
