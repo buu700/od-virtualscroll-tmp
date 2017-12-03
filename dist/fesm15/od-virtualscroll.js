@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, HostBinding, Injectable, Input, NgModule, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, HostBinding, Injectable, Input, NgModule, NgZone, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Observable';
@@ -525,12 +525,14 @@ class VirtualScrollComponent {
      * @param {?} _cdr
      * @param {?} _componentFactoryResolver
      * @param {?} _obsService
+     * @param {?} _zone
      */
-    constructor(_elem, _cdr, _componentFactoryResolver, _obsService) {
+    constructor(_elem, _cdr, _componentFactoryResolver, _obsService, _zone) {
         this._elem = _elem;
         this._cdr = _cdr;
         this._componentFactoryResolver = _componentFactoryResolver;
         this._obsService = _obsService;
+        this._zone = _zone;
         this.vsData = empty();
         this.vsOptions = empty();
         this.vsResize = empty();
@@ -562,16 +564,22 @@ class VirtualScrollComponent {
         const /** @type {?} */ defaultOptions = { itemWidth: 100, itemHeight: 100, numAdditionalRows: 1 };
         const /** @type {?} */ options$ = this.publish(this.vsOptions.pipe(startWith(defaultOptions)));
         const /** @type {?} */ rect$ = merge(fromEvent(window, 'resize'), this.vsResize).pipe(debounceTime(this.vsDebounceTime, animationFrame), map(() => getContainerRect()), startWith(getContainerRect()), map(({ width, height }) => ({ width, height })));
-        const /** @type {?} */ scrollTop$ = fromEvent(this._elem.nativeElement, 'scroll').pipe(debounceTime(this.vsDebounceTime, animationFrame), map(() => getScrollTop()), startWith(0));
+        const /** @type {?} */ scroll$ = new Subject();
+        this._zone.runOutsideAngular(() => {
+            this._subs.push(fromEvent(this._elem.nativeElement, 'scroll').pipe(debounceTime(this.vsDebounceTime, animationFrame)).subscribe(() => {
+                this._zone.run(() => scroll$.next());
+            }));
+        });
+        const /** @type {?} */ scrollTop$ = scroll$.pipe(map(() => getScrollTop()), startWith(0));
         const /** @type {?} */ measure$ = this.publish(combineLatest(data$, rect$, options$).pipe(mergeMap(([data, rect, options]) => __awaiter(this, void 0, void 0, function* () {
             const /** @type {?} */ measurement = yield calcMeasure(data, rect, options);
             return {
-                dataTimestamp: (new Date()).getTime(),
                 dataLength: data.length,
+                dataTimestamp: (new Date()).getTime(),
                 measurement
             };
         }))));
-        const /** @type {?} */ scrollWin$ = this.publish(combineLatest(scrollTop$, measure$, options$).pipe(map(([scrollTop, { measurement, dataTimestamp, dataLength }, options]) => calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options)), distinctUntilChanged((prevWin, curWin) => {
+        const /** @type {?} */ scrollWin$ = this.publish(combineLatest(scrollTop$, measure$, options$).pipe(map(([scrollTop, { dataLength, dataTimestamp, measurement }, options]) => calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options)), distinctUntilChanged((prevWin, curWin) => {
             return prevWin.visibleStartRow === curWin.visibleStartRow &&
                 prevWin.visibleEndRow === curWin.visibleEndRow &&
                 prevWin.numActualColumns === curWin.numActualColumns &&
@@ -791,6 +799,7 @@ VirtualScrollComponent.ctorParameters = () => [
     { type: ChangeDetectorRef, },
     { type: ComponentFactoryResolver, },
     { type: ScrollObservableService, },
+    { type: NgZone, },
 ];
 VirtualScrollComponent.propDecorators = {
     "_templateRef": [{ type: ContentChild, args: [TemplateRef,] },],

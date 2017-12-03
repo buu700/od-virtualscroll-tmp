@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, HostBinding, Injectable, Input, NgModule, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, HostBinding, Injectable, Input, NgModule, NgZone, TemplateRef, ViewChild, ViewContainerRef } from '@angular/core';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/Observable';
@@ -583,11 +583,12 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
  * @suppress {checkTypes} checked by tsc
  */
 var VirtualScrollComponent = (function () {
-    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService) {
+    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService, _zone) {
         this._elem = _elem;
         this._cdr = _cdr;
         this._componentFactoryResolver = _componentFactoryResolver;
         this._obsService = _obsService;
+        this._zone = _zone;
         this.vsData = empty();
         this.vsOptions = empty();
         this.vsResize = empty();
@@ -631,7 +632,13 @@ var VirtualScrollComponent = (function () {
             var width = _a.width, height = _a.height;
             return ({ width: width, height: height });
         }));
-        var /** @type {?} */ scrollTop$ = fromEvent(this._elem.nativeElement, 'scroll').pipe(debounceTime(this.vsDebounceTime, animationFrame), map(function () { return getScrollTop(); }), startWith(0));
+        var /** @type {?} */ scroll$ = new Subject();
+        this._zone.runOutsideAngular(function () {
+            _this._subs.push(fromEvent(_this._elem.nativeElement, 'scroll').pipe(debounceTime(_this.vsDebounceTime, animationFrame)).subscribe(function () {
+                _this._zone.run(function () { return scroll$.next(); });
+            }));
+        });
+        var /** @type {?} */ scrollTop$ = scroll$.pipe(map(function () { return getScrollTop(); }), startWith(0));
         var /** @type {?} */ measure$ = this.publish(combineLatest(data$, rect$, options$).pipe(mergeMap(function (_a) {
             var data = _a[0], rect = _a[1], options = _a[2];
             return __awaiter(_this, void 0, void 0, function () {
@@ -642,8 +649,8 @@ var VirtualScrollComponent = (function () {
                         case 1:
                             measurement = _a.sent();
                             return [2 /*return*/, {
-                                    dataTimestamp: (new Date()).getTime(),
                                     dataLength: data.length,
+                                    dataTimestamp: (new Date()).getTime(),
                                     measurement: measurement
                                 }];
                     }
@@ -651,7 +658,7 @@ var VirtualScrollComponent = (function () {
             });
         })));
         var /** @type {?} */ scrollWin$ = this.publish(combineLatest(scrollTop$, measure$, options$).pipe(map(function (_a) {
-            var scrollTop = _a[0], _b = _a[1], measurement = _b.measurement, dataTimestamp = _b.dataTimestamp, dataLength = _b.dataLength, options = _a[2];
+            var scrollTop = _a[0], _b = _a[1], dataLength = _b.dataLength, dataTimestamp = _b.dataTimestamp, measurement = _b.measurement, options = _a[2];
             return calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options);
         }), distinctUntilChanged(function (prevWin, curWin) {
             return prevWin.visibleStartRow === curWin.visibleStartRow &&
@@ -891,6 +898,7 @@ var VirtualScrollComponent = (function () {
         { type: ChangeDetectorRef, },
         { type: ComponentFactoryResolver, },
         { type: ScrollObservableService, },
+        { type: NgZone, },
     ]; };
     VirtualScrollComponent.propDecorators = {
         "_templateRef": [{ type: ContentChild, args: [TemplateRef,] },],

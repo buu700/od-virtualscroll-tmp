@@ -37,9 +37,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, Input, TemplateRef, ViewChild, ViewContainerRef } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, ContentChild, ElementRef, Input, TemplateRef, ViewChild, ViewContainerRef, NgZone } from "@angular/core";
 import { Observable } from "rxjs/Observable";
 import { animationFrame as animationScheduler } from "rxjs/scheduler/animationFrame";
+import { Subject } from "rxjs/Subject";
 import { combineLatest } from "rxjs/observable/combineLatest";
 import { concat } from "rxjs/observable/concat";
 import { empty } from "rxjs/observable/empty";
@@ -67,11 +68,12 @@ import { difference, intersection, isEmpty } from "./set";
 import { SetScrollTopCmd, UserCmdOption } from "./userCmd";
 import { VirtualRowComponent } from "./virtualRow.component";
 var VirtualScrollComponent = (function () {
-    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService) {
+    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService, _zone) {
         this._elem = _elem;
         this._cdr = _cdr;
         this._componentFactoryResolver = _componentFactoryResolver;
         this._obsService = _obsService;
+        this._zone = _zone;
         this.vsData = empty();
         this.vsOptions = empty();
         this.vsResize = empty();
@@ -115,7 +117,13 @@ var VirtualScrollComponent = (function () {
             var width = _a.width, height = _a.height;
             return ({ width: width, height: height });
         }));
-        var /** @type {?} */ scrollTop$ = fromEvent(this._elem.nativeElement, 'scroll').pipe(debounceTime(this.vsDebounceTime, animationScheduler), map(function () { return getScrollTop(); }), startWith(0));
+        var /** @type {?} */ scroll$ = new Subject();
+        this._zone.runOutsideAngular(function () {
+            _this._subs.push(fromEvent(_this._elem.nativeElement, 'scroll').pipe(debounceTime(_this.vsDebounceTime, animationScheduler)).subscribe(function () {
+                _this._zone.run(function () { return scroll$.next(); });
+            }));
+        });
+        var /** @type {?} */ scrollTop$ = scroll$.pipe(map(function () { return getScrollTop(); }), startWith(0));
         var /** @type {?} */ measure$ = this.publish(combineLatest(data$, rect$, options$).pipe(mergeMap(function (_a) {
             var data = _a[0], rect = _a[1], options = _a[2];
             return __awaiter(_this, void 0, void 0, function () {
@@ -126,8 +134,8 @@ var VirtualScrollComponent = (function () {
                         case 1:
                             measurement = _a.sent();
                             return [2 /*return*/, {
-                                    dataTimestamp: (new Date()).getTime(),
                                     dataLength: data.length,
+                                    dataTimestamp: (new Date()).getTime(),
                                     measurement: measurement
                                 }];
                     }
@@ -135,7 +143,7 @@ var VirtualScrollComponent = (function () {
             });
         })));
         var /** @type {?} */ scrollWin$ = this.publish(combineLatest(scrollTop$, measure$, options$).pipe(map(function (_a) {
-            var scrollTop = _a[0], _b = _a[1], measurement = _b.measurement, dataTimestamp = _b.dataTimestamp, dataLength = _b.dataLength, options = _a[2];
+            var scrollTop = _a[0], _b = _a[1], dataLength = _b.dataLength, dataTimestamp = _b.dataTimestamp, measurement = _b.measurement, options = _a[2];
             return calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options);
         }), distinctUntilChanged(function (prevWin, curWin) {
             return prevWin.visibleStartRow === curWin.visibleStartRow &&
@@ -375,6 +383,7 @@ var VirtualScrollComponent = (function () {
         { type: ChangeDetectorRef, },
         { type: ComponentFactoryResolver, },
         { type: ScrollObservableService, },
+        { type: NgZone, },
     ]; };
     VirtualScrollComponent.propDecorators = {
         "_templateRef": [{ type: ContentChild, args: [TemplateRef,] },],
@@ -431,5 +440,7 @@ function VirtualScrollComponent_tsickle_Closure_declarations() {
     VirtualScrollComponent.prototype._componentFactoryResolver;
     /** @type {?} */
     VirtualScrollComponent.prototype._obsService;
+    /** @type {?} */
+    VirtualScrollComponent.prototype._zone;
 }
 //# sourceMappingURL=virtualScroll.component.js.map

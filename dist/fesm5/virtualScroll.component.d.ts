@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ComponentFactoryResolver, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, ComponentFactoryResolver, ElementRef, OnDestroy, OnInit, NgZone } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { IVirtualScrollOptions } from './basic';
 import { ScrollObservableService } from './service';
@@ -8,6 +8,7 @@ export declare class VirtualScrollComponent implements OnInit, OnDestroy {
     private _cdr;
     private _componentFactoryResolver;
     private _obsService;
+    private _zone;
     private _templateRef;
     private _viewContainer;
     vsData: Observable<any[]>;
@@ -20,7 +21,7 @@ export declare class VirtualScrollComponent implements OnInit, OnDestroy {
     width: string;
     private _rowFactory;
     private _subs;
-    constructor(_elem: ElementRef, _cdr: ChangeDetectorRef, _componentFactoryResolver: ComponentFactoryResolver, _obsService: ScrollObservableService);
+    constructor(_elem: ElementRef, _cdr: ChangeDetectorRef, _componentFactoryResolver: ComponentFactoryResolver, _obsService: ScrollObservableService, _zone: NgZone);
     private publish<T>(source);
     ngOnInit(): void;
     ngOnDestroy(): void;

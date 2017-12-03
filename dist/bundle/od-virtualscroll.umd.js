@@ -564,11 +564,12 @@ var __generator = (undefined && undefined.__generator) || function (thisArg, bod
  * @suppress {checkTypes} checked by tsc
  */
 var VirtualScrollComponent = (function () {
-    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService) {
+    function VirtualScrollComponent(_elem, _cdr, _componentFactoryResolver, _obsService, _zone) {
         this._elem = _elem;
         this._cdr = _cdr;
         this._componentFactoryResolver = _componentFactoryResolver;
         this._obsService = _obsService;
+        this._zone = _zone;
         this.vsData = rxjs_observable_empty.empty();
         this.vsOptions = rxjs_observable_empty.empty();
         this.vsResize = rxjs_observable_empty.empty();
@@ -612,7 +613,13 @@ var VirtualScrollComponent = (function () {
             var width = _a.width, height = _a.height;
             return ({ width: width, height: height });
         }));
-        var /** @type {?} */ scrollTop$ = rxjs_observable_fromEvent.fromEvent(this._elem.nativeElement, 'scroll').pipe(rxjs_operators_debounceTime.debounceTime(this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame), rxjs_operators_map.map(function () { return getScrollTop(); }), rxjs_operators_startWith.startWith(0));
+        var /** @type {?} */ scroll$ = new rxjs_Subject.Subject();
+        this._zone.runOutsideAngular(function () {
+            _this._subs.push(rxjs_observable_fromEvent.fromEvent(_this._elem.nativeElement, 'scroll').pipe(rxjs_operators_debounceTime.debounceTime(_this.vsDebounceTime, rxjs_scheduler_animationFrame.animationFrame)).subscribe(function () {
+                _this._zone.run(function () { return scroll$.next(); });
+            }));
+        });
+        var /** @type {?} */ scrollTop$ = scroll$.pipe(rxjs_operators_map.map(function () { return getScrollTop(); }), rxjs_operators_startWith.startWith(0));
         var /** @type {?} */ measure$ = this.publish(rxjs_observable_combineLatest.combineLatest(data$, rect$, options$).pipe(rxjs_operators_mergeMap.mergeMap(function (_a) {
             var data = _a[0], rect = _a[1], options = _a[2];
             return __awaiter(_this, void 0, void 0, function () {
@@ -623,8 +630,8 @@ var VirtualScrollComponent = (function () {
                         case 1:
                             measurement = _a.sent();
                             return [2 /*return*/, {
-                                    dataTimestamp: (new Date()).getTime(),
                                     dataLength: data.length,
+                                    dataTimestamp: (new Date()).getTime(),
                                     measurement: measurement
                                 }];
                     }
@@ -632,7 +639,7 @@ var VirtualScrollComponent = (function () {
             });
         })));
         var /** @type {?} */ scrollWin$ = this.publish(rxjs_observable_combineLatest.combineLatest(scrollTop$, measure$, options$).pipe(rxjs_operators_map.map(function (_a) {
-            var scrollTop = _a[0], _b = _a[1], measurement = _b.measurement, dataTimestamp = _b.dataTimestamp, dataLength = _b.dataLength, options = _a[2];
+            var scrollTop = _a[0], _b = _a[1], dataLength = _b.dataLength, dataTimestamp = _b.dataTimestamp, measurement = _b.measurement, options = _a[2];
             return calcScrollWindow(scrollTop, measurement, dataLength, dataTimestamp, options);
         }), rxjs_operators_distinctUntilChanged.distinctUntilChanged(function (prevWin, curWin) {
             return prevWin.visibleStartRow === curWin.visibleStartRow &&
@@ -872,6 +879,7 @@ var VirtualScrollComponent = (function () {
         { type: _angular_core.ChangeDetectorRef, },
         { type: _angular_core.ComponentFactoryResolver, },
         { type: ScrollObservableService, },
+        { type: _angular_core.NgZone, },
     ]; };
     VirtualScrollComponent.propDecorators = {
         "_templateRef": [{ type: _angular_core.ContentChild, args: [_angular_core.TemplateRef,] },],
